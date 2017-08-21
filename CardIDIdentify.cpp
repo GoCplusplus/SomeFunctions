@@ -1,3 +1,4 @@
+#include <iostream>
 
 bool IsValidCardID(const char* pInput)
 {
@@ -13,15 +14,21 @@ bool IsValidCardID(const char* pInput)
 	{
 		if (pBegin - pInput == 17) // 最后一位
 		{
-			if ((*pBegin >= 48 && *pBegin <= 57) || (*pBegin >= 65 && *pBegin <= 90) || (*pBegin >= 97 && *pBegin <= 122))
+			if ((*pBegin >= 'A' && *pBegin <= 'Z') || (*pBegin >= '0' && *pBegin <= '9') || (*pBegin >= 'a' && *pBegin <= 'z'))
 				bSatisfy = true;
 		}
 		else
 		{
-			if (!(*pBegin >= 48 && *pBegin <= 57))
+			if (!(*pBegin >= '0' && *pBegin <= '9'))
 				break;
 		}
 		pBegin++;
 	}
 	return bSatisfy;
+}
+
+int main()
+{
+	bool bRet = IsValidCardID("a1250119720303517X");
+	return 0;
 }
