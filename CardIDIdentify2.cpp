@@ -5,7 +5,7 @@ bool IsValidCardID(const char* pInput)
 	bool bSatisfy = false;
 	if (!pInput)
 		return bSatisfy;
-	if (strlen(pInput) != 18)
+	if (strlen(pInput) < 18)
 		return false;
 
 	// 判断身份证是否符合 1:18位 2:前17位一定位数字 最后一位为字母
